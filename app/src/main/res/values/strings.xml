@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FloatingActionMenu</string>
+    <string name="fab1">FloatingActionButton1</string>
+    <string name="fab2">FloatingActionButton2</string>
+    <string name="fab3">FloatingActionButton3</string>
+    <string name="fab4">FloatingActionButton4</string>
 </resources>

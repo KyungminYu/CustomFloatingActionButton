@@ -4,16 +4,15 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-
 public class FloatingActionMenu extends LinearLayout {
 
     private Context mContext;
-    private ArrayList<FloatingActionMenu> floatingActionMenus = new ArrayList<>();
+    private LinearLayout mLinearLayout;
 
     public FloatingActionMenu(Context context) {
         super(context);
@@ -37,13 +36,19 @@ public class FloatingActionMenu extends LinearLayout {
 
     private void intiLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mContext = context;
+        View.inflate(mContext, R.layout.floating_action_menu, (ViewGroup) getRootView());
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        mLinearLayout = findViewById(R.id.floating_action_menu_container);
     }
 
     public void addFloatingActionMenu(int menuTextRes, Drawable menuIconDrawable) {
         CustomFloatingActionButton fab = new CustomFloatingActionButton(mContext);
-        fab.setMenuText(menuTextRes);
         fab.setMenuIcon(menuIconDrawable);
-
-        addView(fab);
+        fab.setMenuText(menuTextRes);
+        mLinearLayout.addView(fab, 0);
     }
 }

@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.kyungmin.floatingactionmenu.CustomFloatingActionButton
+    <com.kyungmin.floatingactionmenu.FloatingActionMenu
+        android:id="@+id/floating_action_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        app:menu_text="@string/app_name"/>
-
+        android:layout_gravity="bottom|end" />
 </FrameLayout>

@@ -2,21 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/fab_menu_padding"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:gravity="center_vertical|end"
+    android:orientation="horizontal"
+    android:padding="@dimen/fab_menu_padding">
 
-    <ViewStub
-        android:id="@+id/fab_menu_text_view_stub"
+    <TextView
+        android:id="@+id/fab_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inflatedId="@+id/fab_menu_text_inflate"
-        android:layout="@layout/menu_text_layout"/>
+        android:paddingStart="@dimen/fab_menu_text_padding_end"
+        android:paddingEnd="@dimen/fab_menu_text_padding_end" />
 
-    <ViewStub
-        android:id="@+id/fab_menu_icon_view_stub"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_menu_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inflatedId="@+id/fab_menu_icon_inflate"
-        android:layout="@layout/menu_icon_layout" />
+        android:foreground="@mipmap/ic_launcher"/>
 </LinearLayout>

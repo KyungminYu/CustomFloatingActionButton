@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,25 +64,15 @@ public class CustomFloatingActionButton extends LinearLayout {
     public void setMenuText(int menuTextRes) {
         mMenuTextRes = menuTextRes;
         if (mMenuTextRes > 0) {
-            ViewStub viewStub = findViewById(R.id.fab_menu_text_view_stub);
-            if (viewStub != null) {
-                mTextView = (TextView) viewStub.inflate();
-            } else {
-                mTextView = findViewById(R.id.fab_menu_text);
-            }
+            mTextView = findViewById(R.id.fab_menu_text);
             mTextView.setText(mMenuTextRes);
         }
     }
 
     public void setMenuIcon(Drawable menuIconDrawable) {
-        ViewStub viewStub = findViewById(R.id.fab_menu_icon_view_stub);
-        if (viewStub != null) {
-            mFloatingActionButton = (FloatingActionButton) viewStub.inflate();
-        } else {
-            mFloatingActionButton = findViewById(R.id.fab_menu_icon);
-        }
         mMenuIconDrawable = menuIconDrawable;
         if (mMenuIconDrawable != null) {
+            mFloatingActionButton = findViewById(R.id.fab_menu_icon);
             mFloatingActionButton.setForeground(mMenuIconDrawable);
         }
     }
