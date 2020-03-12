@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mFloatingActionMenu = findViewById(R.id.floating_action_menu);
-        mFloatingActionMenu.addFloatingActionMenu(R.string.fab1, null);
-        mFloatingActionMenu.addFloatingActionMenu(R.string.fab2, null);
-        mFloatingActionMenu.addFloatingActionMenu(R.string.fab3, null);
-        mFloatingActionMenu.addFloatingActionMenu(R.string.fab4, null);
+        mFloatingActionMenu.addFloatingActionMenu(R.string.fab_text_share, R.drawable.ic_share);
+        mFloatingActionMenu.addFloatingActionMenu(R.string.fab_text_reload, R.drawable.ic_refresh);
+        mFloatingActionMenu.addFloatingActionMenu(R.string.fab_text_lock, R.drawable.ic_lock);
+        mFloatingActionMenu.addFloatingActionMenu(R.string.fab_text_download, R.drawable.ic_download);
     }
 }

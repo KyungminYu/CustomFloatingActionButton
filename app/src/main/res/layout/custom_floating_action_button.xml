@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical|end"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:gravity="end"
+    android:layout_gravity="bottom"
     android:padding="@dimen/fab_menu_padding">
 
     <TextView
         android:id="@+id/fab_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:paddingStart="@dimen/fab_menu_text_padding_end"
         android:paddingEnd="@dimen/fab_menu_text_padding_end" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/fab_menu_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:foreground="@mipmap/ic_launcher"/>
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:src="@drawable/ic_plus"
+        app:elevation="0dp"/>
 </LinearLayout>
