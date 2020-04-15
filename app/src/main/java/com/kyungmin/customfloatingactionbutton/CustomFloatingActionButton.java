@@ -1,4 +1,4 @@
-package com.kyungmin.floatingactionmenu;
+package com.kyungmin.customfloatingactionbutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,4 +1,4 @@
-package com.kyungmin.floatingactionmenu;
+package com.kyungmin.customfloatingactionbutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
