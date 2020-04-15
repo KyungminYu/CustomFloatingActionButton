@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class FloatingActionMenu extends FrameLayout implements View.OnClickListener {
+public class FloatingActionButtonContainer extends FrameLayout implements View.OnClickListener {
 
     private static final String TAG = "FloatingActionMenu";
 
@@ -24,22 +24,22 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
 
     private ArrayList<CustomFloatingActionButton> mFabList = new ArrayList<>();
 
-    public FloatingActionMenu(Context context) {
+    public FloatingActionButtonContainer(Context context) {
         super(context);
         intiLayout(context, null, 0, 0);
     }
 
-    public FloatingActionMenu(Context context, @Nullable AttributeSet attrs) {
+    public FloatingActionButtonContainer(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         intiLayout(context, attrs, 0, 0);
     }
 
-    public FloatingActionMenu(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FloatingActionButtonContainer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         intiLayout(context, attrs, defStyleAttr, 0);
     }
 
-    public FloatingActionMenu(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FloatingActionButtonContainer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         intiLayout(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -49,7 +49,7 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
         mIsFabShown = false;
         mFabList.clear();
         mMenuHeight = getResources().getDimensionPixelOffset(R.dimen.fab_size) + getResources().getDimensionPixelOffset(R.dimen.fab_menu_padding) * 2;
-        View.inflate(mContext, R.layout.floating_action_menu, (ViewGroup) getRootView());
+        View.inflate(mContext, R.layout.floating_action_button_container, (ViewGroup) getRootView());
     }
 
     @Override

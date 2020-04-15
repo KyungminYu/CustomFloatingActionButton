@@ -33,7 +33,7 @@ public class FloatingActionDialog extends DialogFragment {
         final View view = LayoutInflater.from(getContext()).inflate(R.layout.floating_action_dialog, null);
 
         AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-        alertDialog.setContentView();
+        alertDialog.setContentView(view);
         return alertDialog;
     }
 }
