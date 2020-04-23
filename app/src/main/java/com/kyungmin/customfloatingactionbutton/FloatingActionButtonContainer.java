@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class FloatingActionMenu extends FrameLayout implements View.OnClickListener {
+public class FloatingActionButtonContainer extends FrameLayout implements View.OnClickListener {
 
     private static final String TAG = "FloatingActionMenu";
 
@@ -21,25 +21,26 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
 
     private boolean mIsFabShown = false;
     private float mMenuHeight;
+    private View.OnClickListener mOnClickListener;
 
     private ArrayList<CustomFloatingActionButton> mFabList = new ArrayList<>();
 
-    public FloatingActionMenu(Context context) {
+    public FloatingActionButtonContainer(Context context) {
         super(context);
         intiLayout(context, null, 0, 0);
     }
 
-    public FloatingActionMenu(Context context, @Nullable AttributeSet attrs) {
+    public FloatingActionButtonContainer(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         intiLayout(context, attrs, 0, 0);
     }
 
-    public FloatingActionMenu(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FloatingActionButtonContainer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         intiLayout(context, attrs, defStyleAttr, 0);
     }
 
-    public FloatingActionMenu(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FloatingActionButtonContainer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         intiLayout(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -49,7 +50,7 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
         mIsFabShown = false;
         mFabList.clear();
         mMenuHeight = getResources().getDimensionPixelOffset(R.dimen.fab_size) + getResources().getDimensionPixelOffset(R.dimen.fab_menu_padding) * 2;
-        View.inflate(mContext, R.layout.floating_action_menu, (ViewGroup) getRootView());
+        View.inflate(mContext, R.layout.floating_action_button_container, (ViewGroup) getRootView());
     }
 
     @Override
@@ -60,11 +61,17 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
         mMenuFab.setOnClickListener(this);
     }
 
-    public void addFloatingActionMenu(int menuTextRes, int menuIconRes) {
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        mOnClickListener = onClickListener;
+    }
+
+    public void addFloatingActionMenu(int menuTextRes, int menuIconRes, View.OnClickListener onClickListener) {
         CustomFloatingActionButton fab = new CustomFloatingActionButton(mContext);
         fab.setMenuIconRes(menuIconRes);
         fab.setMenuText(menuTextRes);
+        fab.setTag(mContext.getText(menuTextRes));
         fab.setVisibility(View.GONE);
+        fab.setOnClickListener(onClickListener);
         mFrameLayout.addView(fab, 0);
         mFabList.add(0, fab);
 
@@ -76,6 +83,9 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Log.d(TAG, "onClick()");
+        if (mOnClickListener != null) {
+            mOnClickListener.onClick(this);
+        }
         toggleFabMenu();
     }
 
