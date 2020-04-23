@@ -29,28 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_reload, R.drawable.ic_refresh, this);
         mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_lock, R.drawable.ic_lock, this);
         mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_download, R.drawable.ic_download, this);
-
-        mFabContainerForDialog = findViewById(R.id.floating_action_button_container_for_dialog);
-        mFabContainerForDialog.setOnClickListener(this);
-    }
-
-    private void showFloatingActionDialog() {
-        Log.d(TAG, "showFloatingActionDialog()");
-        ArrayList<Pair<Integer, Integer>> fabResIdList = new ArrayList<>();
-        fabResIdList.add(new Pair<>(R.string.fab_text_share, R.drawable.ic_share));
-        fabResIdList.add(new Pair<>(R.string.fab_text_reload, R.drawable.ic_refresh));
-        fabResIdList.add(new Pair<>(R.string.fab_text_lock, R.drawable.ic_lock));
-        fabResIdList.add(new Pair<>(R.string.fab_text_download, R.drawable.ic_download));
-        FloatingActionDialog floatingActionDialog = new FloatingActionDialog(fabResIdList, this);
-        floatingActionDialog.show(getSupportFragmentManager(), null);
     }
 
     @Override
     public void onClick(View v) {
         Toast.makeText(getApplicationContext(), "tag: " + v.getTag(), Toast.LENGTH_SHORT).show();
-        int viewId = v.getId();
-        if (viewId == R.id.floating_action_button_container_for_dialog) {
-            showFloatingActionDialog();
-        }
     }
 }
