@@ -23,14 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFabContainerForMenu = findViewById(R.id.floating_action_button_container_for_menu);
-        mFabContainerForMenu.setOnClickListener(this);
-        mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_share, R.drawable.ic_share, this);
-        mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_reload, R.drawable.ic_refresh, this);
-        mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_lock, R.drawable.ic_lock, this);
-        mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_download, R.drawable.ic_download, this);
-
-        mFabContainerForDialog = findViewById(R.id.floating_action_button_container_for_dialog);
+        mFabContainerForDialog = findViewById(R.id.floating_action_button_container);
         mFabContainerForDialog.setOnClickListener(this);
     }
 
@@ -49,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Toast.makeText(getApplicationContext(), "tag: " + v.getTag(), Toast.LENGTH_SHORT).show();
         int viewId = v.getId();
-        if (viewId == R.id.floating_action_button_container_for_dialog) {
+        if (viewId == R.id.floating_action_button_container) {
             showFloatingActionDialog();
         }
     }
