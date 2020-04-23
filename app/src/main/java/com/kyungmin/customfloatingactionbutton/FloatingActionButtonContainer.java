@@ -21,6 +21,7 @@ public class FloatingActionButtonContainer extends FrameLayout implements View.O
 
     private boolean mIsFabShown = false;
     private float mMenuHeight;
+    private View.OnClickListener mOnClickListener;
 
     private ArrayList<CustomFloatingActionButton> mFabList = new ArrayList<>();
 
@@ -60,11 +61,17 @@ public class FloatingActionButtonContainer extends FrameLayout implements View.O
         mMenuFab.setOnClickListener(this);
     }
 
-    public void addFloatingActionMenu(int menuTextRes, int menuIconRes) {
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        mOnClickListener = onClickListener;
+    }
+
+    public void addFloatingActionMenu(int menuTextRes, int menuIconRes, View.OnClickListener onClickListener) {
         CustomFloatingActionButton fab = new CustomFloatingActionButton(mContext);
         fab.setMenuIconRes(menuIconRes);
         fab.setMenuText(menuTextRes);
+        fab.setTag(mContext.getText(menuTextRes));
         fab.setVisibility(View.GONE);
+        fab.setOnClickListener(onClickListener);
         mFrameLayout.addView(fab, 0);
         mFabList.add(0, fab);
 
@@ -76,6 +83,9 @@ public class FloatingActionButtonContainer extends FrameLayout implements View.O
     @Override
     public void onClick(View v) {
         Log.d(TAG, "onClick()");
+        if (mOnClickListener != null) {
+            mOnClickListener.onClick(this);
+        }
         toggleFabMenu();
     }
 
