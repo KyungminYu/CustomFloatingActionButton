@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.kyungmin.customfloatingactionbutton.FloatingActionButtonContainer
-        android:id="@+id/floating_action_button_container_for_menu"
+        android:id="@+id/floating_action_button_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

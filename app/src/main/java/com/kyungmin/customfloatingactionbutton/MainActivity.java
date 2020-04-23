@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFabContainerForMenu = findViewById(R.id.floating_action_button_container_for_menu);
+        mFabContainerForMenu = findViewById(R.id.floating_action_button_container);
         mFabContainerForMenu.setOnClickListener(this);
         mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_share, R.drawable.ic_share, this);
         mFabContainerForMenu.addFloatingActionMenu(R.string.fab_text_reload, R.drawable.ic_refresh, this);
